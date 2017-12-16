@@ -1,0 +1,208 @@
+<html>
+<head>
+<title>Docs for page defines.php</title>
+<link rel="stylesheet" type="text/css" href="../../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">XBSLOG</td>
+  </tr>
+  <tr><td class="header_line"><img src="../../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+  		  [ <a href="../../classtrees_XBSLOG.html" class="menu">class tree: XBSLOG</a> ]
+		  [ <a href="../../elementindex_XBSLOG.html" class="menu">index: XBSLOG</a> ]
+		  [ <a href="../../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../../li_XBSLOG.html">XBSLOG</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	subpackage <b>Definitions</b><br>  <div class="package">
+			<a href="../../XBSLOG/Definitions/_log_include_defines_php.html">		defines.php
+		</a><br>
+	  </div><br />
+	subpackage <b>Form_Handling</b><br>  <div class="package">
+			<a href="../../XBSLOG/Form_Handling/_log_class_class_log_form_php.html">		class.log.form.php
+		</a><br>
+	  </div><br />
+	subpackage <b>Logger</b><br>  <div class="package">
+			<a href="../../XBSLOG/Logger/_log_class_Logger_php.html">		Logger.php
+		</a><br>
+	  </div><br />
+      
+            <b>Classes:</b><br />
+        <div class="package">
+	Form_Handling<br />	    &nbsp;&nbsp;		<a href="../../XBSLOG/Form_Handling/logTableForm.html">logTableForm</a><br />
+	  </div>
+  <div class="package">
+	Logger<br />	    &nbsp;&nbsp;		<a href="../../XBSLOG/Logger/Xbs_logLoggerHandler.html">Xbs_logLoggerHandler</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Procedural File: defines.php</h1>
+Source Location: /include/defines.php<br /><br />
+
+<br>
+<br>
+
+
+<h2>Page Details:</h2>
+Constant definitions that are programming specific rather than  module or language specific<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>(c) 2006 Ashley Kitson, Great Britain</td>
+  </tr>
+  <tr>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Ashley Kitson http://xoobs.net</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+<br /><br />
+<br /><br />
+  <hr />
+	<a name="defineXBSLOG_DATEFMT"></a>
+	<h3>XBSLOG_DATEFMT <span class="smalllinenumber">[line 82]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>XBSLOG_DATEFMT = &quot;D M j G:i:s&quot;</code>
+    </td></tr></table>
+    </td></tr></table>
+
+    date format string for outputting date info on screen<br /><br /><p>Constants for xbslog objects</p><br />    <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineXBSLOG_DIR"></a>
+	<h3>XBSLOG_DIR <span class="smalllinenumber">[line 26]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>XBSLOG_DIR = 'xbs_log'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+    The XBSLOG module directory name<br /><br /><p>cannot use dirname as it doesn't nest (i.e not correct if XBSLOG being used from within another module)  <div class="listing"><pre><ol><li> <a href="http://www.php.net/define">define</a><span class="src-sym">(</span><span class="src-str">'XBSLOG_DIR'</span><span class="src-sym">, </span><span class="src-var">$xoopsModule</span><span class="src-sym">-&gt;</span><span class="src-id">dirname</span><span class="src-sym">(</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+</ol></pre></div></p><br />    <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineXBSLOG_LOG_FILE"></a>
+	<h3>XBSLOG_LOG_FILE <span class="smalllinenumber">[line 74]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>XBSLOG_LOG_FILE = 'xbs_logger.log'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+    log filename<br /><br /><p>Constants for xbslog objects</p><br />    <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineXBSLOG_LOG_PATH"></a>
+	<h3>XBSLOG_LOG_PATH <span class="smalllinenumber">[line 70]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>XBSLOG_LOG_PATH = XOOPS_ROOT_PATH.'/log'</code>
+    </td></tr></table>
+    </td></tr></table>
+
+    path to log file<br /><br /><p>Constants for xbslog objects</p><br />    <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineXBSLOG_PATH"></a>
+	<h3>XBSLOG_PATH <span class="smalllinenumber">[line 61]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>XBSLOG_PATH = XOOPS_ROOT_PATH.&quot;/modules/&quot;.XBSLOG_DIR</code>
+    </td></tr></table>
+    </td></tr></table>
+
+    Full file path to XBSLOG directory<br /><br /><p>Constants for xbslog objects</p><br />    <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineXBSLOG_TBL_LOG"></a>
+	<h3>XBSLOG_TBL_LOG <span class="smalllinenumber">[line 78]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>XBSLOG_TBL_LOG = &quot;xbslog_log&quot;</code>
+    </td></tr></table>
+    </td></tr></table>
+
+    Log table<br /><br /><p>Constants for xbslog objects</p><br />    <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+  <hr />
+	<a name="defineXBSLOG_URL"></a>
+	<h3>XBSLOG_URL <span class="smalllinenumber">[line 65]</span></h3>
+	<div class="tags">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>XBSLOG_URL = XOOPS_URL.&quot;/modules/&quot;.XBSLOG_DIR</code>
+    </td></tr></table>
+    </td></tr></table>
+
+    URL to XBSLOG<br /><br /><p>Constants for xbslog objects</p><br />    <br />
+		</div>
+	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+<br />
+  <hr />
+	<a name="functiongetXBSLOGModConfigs"></a>
+	<h3>getXBSLOGModConfigs <span class="smalllinenumber">[line 39]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array getXBSLOGModConfigs(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+
+		Function: Get the current module's configuration options<br /><br /><p>Because XBSLOG can be nested inside other modules the $xoopsModuleConfig  variable will be pointing to whatever module is currently in scope  We therefore need to retrieve the XBSLOG options</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>Module config options</td>
+  </tr>
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1</td>
+  </tr>
+</table>
+</div>
+    <br /><br />
+	
+    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+	</div>
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Wed, 29 Mar 2006 14:01:54 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.3.0RC3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
