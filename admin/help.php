@@ -2,7 +2,7 @@
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org/>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -25,40 +25,38 @@
 //  ------------------------------------------------------------------------ //
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2006, Ashley Kitson                                        //
-// URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// URL:       http://xoobs.net                                               //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    XBS Logger (XBSLOG)                                            //
 // ------------------------------------------------------------------------- //
 /**
-* Display help page
-*
-* @author Ashley Kitson http://xoobs.net
-* @copyright 2006 Ashley Kitson, UK
-* @package XBSLOG
-* @subpackage Help
-* @version 1
-* @access private
-*/
+ * Display help page
+ *
+ * @author     Ashley Kitson http://xoobs.net
+ * @copyright  2006 Ashley Kitson, UK
+ * @package    XBSLOG
+ * @subpackage Help
+ * @version    1
+ * @access     private
+ */
 
 /**
-* Do all the declarations etc needed by an admin page
-*/
-include_once "adminheader.php";
+ * Do all the declarations etc needed by an admin page
+ */
+include_once __DIR__ . '/adminheader.php';
 
 //Display the admin menu
-xoops_module_admin_menu(0,'');
+xoops_module_admin_menu(0, '');
 
 /**
-* To use this as a template you need to write code to display
-* whatever it is you want displaying between here...
-*/
-redirect_header(XBSLOG_URL."/docs/index.html",0,"Taking you to module documentation");
+ * To use this as a template you need to write code to display
+ * whatever it is you want displaying between here...
+ */
+redirect_header(XBSLOG_URL . '/docs/index.html', 0, 'Taking you to module documentation');
 #include(XBSLOG_PATH.'/docs/index.html');
 /**
-* and here.
-*/
+ * and here.
+ */
 
 //And put footer in
 xoops_cp_footer();
-
-?>
