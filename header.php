@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Module header file required by xoops
  *
@@ -12,12 +13,12 @@
 /**
  * Xoops required include
  */
-include __DIR__ . '/../../mainfile.php';
+require dirname(dirname(__DIR__)) . '/mainfile.php';
 /**
  * non language specific constant definitions
  */
-include_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
+require_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
 /**
  * include the main xoops header file
  */
-include XOOPS_ROOT_PATH . '/header.php';
+require XOOPS_ROOT_PATH . '/header.php';

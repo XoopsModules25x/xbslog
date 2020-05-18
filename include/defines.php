@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2005, Ashley Kitson
 // URL:       http://xoobs.net                                               //
@@ -65,20 +66,25 @@ require_once XBSLOG_PATH . '/include/xbsnotice.php';
  * variable will be pointing to whatever module is currently in scope
  * We therefore need to retrieve the XBSLOG options
  *
- * @version 1
- * @internal
  * @return array Module config options
+ * @internal
+ * @version 1
  */
 function getXBSLOGModConfigs()
 {
     static $XBSLOGModuleConfig;
+
     if (isset($XBSLOGModuleConfig)) {
         return $XBSLOGModuleConfig;
     }
+
     $moduleHandler = xoops_getHandler('module');
+
     if ($Module = $moduleHandler->getByDirname(XBSLOG_DIR)) {
-        $configHandler      = xoops_getHandler('config');
+        $configHandler = xoops_getHandler('config');
+
         $XBSLOGModuleConfig = $configHandler->getConfigsByCat(0, $Module->getVar('mid'));
     }
+
     return $XBSLOGModuleConfig;
 }

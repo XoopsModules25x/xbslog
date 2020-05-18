@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2006, Ashley Kitson                                        //
 // URL:       http://xoobs.net                                               //
@@ -21,7 +22,7 @@
 /**
  * Do all the declarations etc needed by an admin page
  */
-include_once __DIR__ . '/adminheader.php';
+require_once __DIR__ . '/adminheader.php';
 
 //Display the admin menu
 xoops_module_admin_menu(1, _AM_XBSLOG_ADMENU1);

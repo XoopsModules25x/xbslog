@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <https://xoops.org/>                             //
+//                       <https://xoops.org>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -53,25 +54,28 @@ require_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
  *
  * Called during update process to alter data table structure or values in tables
  *
+ * @param xoopsModule &$module     handle to the module object being updated
+ * @param int          $oldVersion version * 100 prior to update
+ * @return bool True if successful else False
  * @version 1
- * @param xoopsModule &$module    handle to the module object being updated
- * @param int         $oldVersion version * 100 prior to update
- * @return boolean True if successful else False
  */
 function xoops_module_update_xbs_log(&$module, $oldVersion)
 {
     global $xoopsDB;
+
     /*
     if ($oldVersion < 110) { //upgrading from version 1.00
     }
     */
+
     //notify xoobs.net of update
+
     xbsNotify('Updated');
+
     return true;
 }//end function
 
 /**
- *
  * admin make a directory
  *
  * Thanks to the NewBB2 Development Team
@@ -93,15 +97,17 @@ function admin_mkdir($target)
         return false;
     }
 
-    if (admin_mkdir(substr($target, 0, strrpos($target, '/')))) {
+    if (admin_mkdir(mb_substr($target, 0, mb_strrpos($target, '/')))) {
         if (!file_exists($target)) {
             $res = mkdir($target, 0700); // crawl back up & create dir tree
+
             admin_chmod($target);
+
             return $res;
         }
     }
-    $res = is_dir($target);
-    return $res;
+
+    return is_dir($target);
 }
 
 /**
@@ -120,20 +126,26 @@ function admin_chmod($target, $mode = 0700)
 /**
  * Function: Module Install callback
  *
- * @version 1
  * @param xoopsModule &$module Handle to module object being installed
- * @return boolean True if successful else False
+ * @return bool True if successful else False
+ * @version 1
  */
-function xoops_module_install_xbs_log(&$module)
+function xoops_module_install_xbs_log($module)
 {
     #global $xoopsDB;
+
     //create the log directory
+
     if (!admin_mkdir(XBSLOG_LOG_PATH)) {
         $module->setErrors('Unable to create logging directory: ' . XBSLOG_LOG_PATH . ' Please create it yourself');
+
         return false;
     }
+
     //notify xoobs.net of install
+
     xbsNotify('Installed');
+
     return true;
 }//end function
 
@@ -142,13 +154,14 @@ function xoops_module_install_xbs_log(&$module)
  *
  * This will only work for Xoops at version 2.2+
  *
- * @version 1
  * @param xoopsModule &$module Handle to module object being installed
- * @return boolean True if successful else False
+ * @return bool True if successful else False
+ * @version 1
  */
 function xoops_module_pre_install_xbs_log(&$module)
 {
     #global $xoopsDB;
+
     return true;
 }//end function
 
@@ -160,9 +173,9 @@ function xoops_module_pre_install_xbs_log(&$module)
  *   Herltestraße 12
  *   D-01307, Germany
  *
- * @version  1.0
  * @param $dir
  * @return bool
+ * @version  1.0
  */
 function rmdirr($dir)
 {
@@ -170,8 +183,10 @@ function rmdirr($dir)
         if (cleardir($dir)) {
             return rmdir($dir);
         }
+
         return false;
     }
+
     return unlink($dir);
 }
 
@@ -183,22 +198,26 @@ function rmdirr($dir)
  *   Herltestraße 12
  *   D-01307, Germany
  *
- * @version  1.0
  * @param $dir
  * @return bool
+ * @version  1.0
  */
 function cleardir($dir)
 {
     if (!($dir = dir($dir))) {
         return false;
     }
+
     while (false !== $item = $dir->read()) {
         if ('.' != $item && '..' != $item && !rmdirr($dir->path . DIRECTORY_SEPARATOR . $item)) {
             $dir->close();
+
             return false;
         }
     }
+
     $dir->close();
+
     return true;
 }
 
@@ -207,26 +226,29 @@ function cleardir($dir)
  *
  * XBSLOG tables are deleted via the Xoops uninstaller
  *
- * @version 1
  * @param xoopsModule &$module Handle to module object being installed
- * @return boolean True if successful else False
+ * @return bool True if successful else False
+ * @version 1
  */
-function xoops_module_uninstall_xbs_log(&$module)
+function xoops_module_uninstall_xbs_log($module)
 {
     #global $xoopsDB;
+
     //Notify Xoobs.net of uninstall
+
     xbsNotify('Uninstall');
+
     //remove the log directory
+
     $cfg = getXBSLOGModConfigs();
-    if (isset($cfg['def_logpath'])) {
-        $logpath = $cfg['def_logpath'];
-    } else {
-        $logpath = XBSLOG_LOG_PATH;
-    }
+
+    $logpath = $cfg['def_logpath'] ?? XBSLOG_LOG_PATH;
+
     if (rmdirr($logpath)) {
         return true;
-    } else {
-        $module->setErrors('Unable to remove logging directory: ' . XBSLOG_LOG_PATH);
-        return false;
     }
+
+    $module->setErrors('Unable to remove logging directory: ' . XBSLOG_LOG_PATH);
+
+    return false;
 }//end function

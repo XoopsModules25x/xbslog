@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <https://xoops.org/>                             //
+//                       <https://xoops.org>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -40,9 +41,8 @@
 
 /**
  * Load module definitions
- *
  */
-include_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
+require_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
 
 /**
  * Writes and reads log entries for any application
@@ -62,12 +62,12 @@ include_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
  */
 class Xbs_logLoggerHandler extends XoopsObjectHandler
 {
-
     /**#@+
      * Private variables
      *
      * @access private
      */
+
     public $_logName = 'XBS';  //log name
     public $_logPath = XBSLOG_LOG_PATH;
     public $_logFile = XBSLOG_LOG_FILE;
@@ -77,20 +77,24 @@ class Xbs_logLoggerHandler extends XoopsObjectHandler
     /**
      * Constructor
      *
-     * @param @XoopsDb $db
+     * @param \XoopsDatabase $db
      */
-    public function __construct($db)
+    public function __construct(\XoopsDatabase $db)
     {
         $cfg = getXBSLOGModConfigs();
+
         if (isset($cfg['def_logpath'])) {
             $this->_logPath = $cfg['def_logpath'];
         }
+
         if (isset($cfg['def_logfile'])) {
             $this->_logFile = $cfg['def_logfile'];
         }
+
         if (isset($cfg['def_datefmt'])) {
             $this->_dateFmt = $cfg['def_datefmt'];
         }
+
         parent::__construct($db);
     }
 
@@ -112,22 +116,25 @@ class Xbs_logLoggerHandler extends XoopsObjectHandler
      */
     public function mtimeToDate($mTimeStr)
     {
-        $t    = explode(' ', $mTimeStr);
+        $t = explode(' ', $mTimeStr);
+
         $t[0] = ltrim($t[0], '0.');
-        $ret  = date($this->_dateFmt, $t[1]) . ".$t[0]";
-        return $ret;
+
+        return date($this->_dateFmt, $t[1]) . ".$t[0]";
     }
 
     /**
      * convert a double (float) microtime to date-time-microtime  string
      *
-     * @param double $mTime float in standard microtime(true) format
+     * @param float $mTime float in standard microtime(true) format
      * @return string date format string suffixed with .microseconds
      */
     public function floatMtimeToDate($mTime)
     {
         $m = (string)$mTime;
+
         $s = explode('.', $m);
+
         return $this->mtimeToDate("$s[1] $s[0]");
     }
 
@@ -142,11 +149,13 @@ class Xbs_logLoggerHandler extends XoopsObjectHandler
      */
     public function mtimeToFloat($mTimeStr)
     {
-        $m    = (string)$mTimeStr;
-        $t    = explode(' ', $m);
+        $m = (string)$mTimeStr;
+
+        $t = explode(' ', $m);
+
         $t[0] = ltrim($t[0], '0.');
-        $r    = (float)"$t[1].$t[0]";
-        return $r;
+
+        return (float)"$t[1].$t[0]";
     }
 
     /**
@@ -167,45 +176,64 @@ class Xbs_logLoggerHandler extends XoopsObjectHandler
      */
     public function log($stage, $processMsg)
     {
-        $stage  = strtoupper($stage);
+        $stage = mb_strtoupper($stage);
+
         $logstr = "$this->_logName|$stage|" . $this->mtimeToFloat(microtime()) . "|$processMsg\n";
-        if ($fhandle = fopen($this->getFname(), 'a')) {
+
+        if ($fhandle = fopen($this->getFname(), 'ab')) {
             if (flock($fhandle, LOCK_EX)) {
                 fwrite($fhandle, $logstr);
+
                 flock($fhandle, LOCK_UN);
             }
+
             fclose($fhandle);
         }
-    }//end function
+    }
+
+    //end function
 
     /**
      * Reads disk log into database table and clears disk log
-     *
      */
     public function readLogToDB()
     {
         //open file for reading
-        if ($fhandle = fopen($this->getFname(), 'r+')) {
+
+        if ($fhandle = fopen($this->getFname(), 'r+b')) {
             //and lock it
+
             if (flock($fhandle, LOCK_EX)) {
                 $sqlStr = 'INSERT INTO ' . $this->db->prefix(XBSLOG_TBL_LOG) . ' (logname,stage,logtime,msg) VALUES (%s,%s,%F,%s)';
+
                 while (!feof($fhandle)) { //read each line and store to database
                     $buffer = fgets($fhandle, 1024);
+
                     if ('' != $buffer) {
-                        $row    = explode('|', $buffer);
-                        $sql    = sprintf($sqlStr, $this->db->quoteString($row[0]), $this->db->quoteString($row[1]), $row[2], $this->db->quoteString($row[3]));
+                        $row = explode('|', $buffer);
+
+                        $sql = sprintf($sqlStr, $this->db->quoteString($row[0]), $this->db->quoteString($row[1]), $row[2], $this->db->quoteString($row[3]));
+
                         $result = $this->db->queryF($sql);
                     }
                 }//end while
+
                 //reset file length to 0
+
                 ftruncate($fhandle, 0);
+
                 fseek($fhandle, 0);
+
                 //unlock file
+
                 flock($fhandle, LOCK_UN);
             }//end if flock
+
             fclose($fhandle);
         }//end if fopen
-    }//end function
+    }
+
+    //end function
 
     /**
      * get an array of log entries
@@ -216,22 +244,32 @@ class Xbs_logLoggerHandler extends XoopsObjectHandler
      */
     public function getLogEntries($start, $limit)
     {
-        $rows    = [];
+        $rows = [];
+
         $thisrow = [];
-        $sql     = 'select * from ' . $this->db->prefix(XBSLOG_TBL_LOG) . " order by logtime DESC LIMIT $start,$limit";
-        $result  = $this->db->query($sql);
+
+        $sql = 'select * from ' . $this->db->prefix(XBSLOG_TBL_LOG) . " order by logtime DESC LIMIT $start,$limit";
+
+        $result = $this->db->query($sql);
+
         if ($result) {
-            while ($row = $this->db->fetchArray($result)) {
+            while (false !== ($row = $this->db->fetchArray($result))) {
                 $row['logtime'] = $this->floatMtimeToDate($row['logtime']);
+
                 foreach ($row as $key => $value) {
                     $thisrow[] = $value;
                 }
+
                 $rows[] = $thisrow;
+
                 unset($thisrow);
             }
         }
+
         return $rows;
-    }//end function
+    }
+
+    //end function
 
     /**
      * Get the number of log entries
@@ -240,13 +278,17 @@ class Xbs_logLoggerHandler extends XoopsObjectHandler
      */
     public function getRowsNum()
     {
-        $sql    = 'SELECT count(*) AS count FROM ' . $this->db->prefix(XBSLOG_TBL_LOG);
+        $sql = 'SELECT count(*) AS count FROM ' . $this->db->prefix(XBSLOG_TBL_LOG);
+
         $result = $this->db->query($sql);
+
         if ($result) {
             $row = $this->db->fetchArray($result);
+
             return (int)$row['count'];
-        } else {
-            return 0;
         }
-    }//end function
+
+        return 0;
+    }
+    //end function
 }//end class

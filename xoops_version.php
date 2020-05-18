@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2004, Ashley Kitson
 // URL:       http://xoobs.net                                               //
@@ -19,7 +20,6 @@
  * @access        private
  * @global array Module Installation array as per Xoops
  */
-
 if (!defined('XOOPS_ROOT_PATH')) {
     die('XOOPS root path not defined');
 }
@@ -29,12 +29,12 @@ global $modversion;
 /**
  * Logger definitions
  */
-include_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
+require_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
 
 $modversion['name']        = _MI_XBSLOG_NAME;
 $modversion['version']     = .1;
 $modversion['description'] = _MI_XBSLOG_DESC;
-$modversion['credits']     = 'Ashley Kitson<br />( http://xoobs.net/ )';
+$modversion['credits']     = 'Ashley Kitson<br>( http://xoobs.net/ )';
 $modversion['author']      = 'Ashley Kitson';
 $modversion['help']        = 'xbsloghelp.html';
 //$modversion['help']        = 'page=help';
@@ -57,7 +57,7 @@ $modversion['min_xoops']           = '2.5.6';
 $modversion['min_admin']           = '1.1';
 $modversion['min_db']              = [
     'mysql'  => '5.0.7',
-    'mysqli' => '5.0.7'
+    'mysqli' => '5.0.7',
 ];
 
 #$modversion['onUpdate'] = "install_funcs.php";

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 //%%%%%%        Module Name 'XBSLOG'        %%%%%
 /**
@@ -28,7 +28,6 @@
  *
  * Relative url from module directory for documentation
  */
-
 define('_AM_XBS_LOG_URL_DOCS', 'admin/help.php');
 /**
  * Absolute url for module support site

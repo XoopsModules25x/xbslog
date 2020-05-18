@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2006, Ashley Kitson                                        //
@@ -18,11 +18,10 @@
  * @version    1
  * @access     private
  */
-
 defined('XOOPS_ROOT_PATH') || exit('XOOPS root path not defined');
 
 //$path = dirname(dirname(dirname(__DIR__)));
-//include_once $path . '/mainfile.php';
+//require_once $path . '/mainfile.php';
 
 $moduleHandler = xoops_getHandler('module');
 $module        = $moduleHandler->getByDirname(basename(dirname(__DIR__)));
@@ -33,7 +32,7 @@ $pathModuleAdmin = XOOPS_ROOT_PATH . '/' . $module->getInfo('dirmoduleadmin') . 
 if (!file_exists($fileinc = $pathModuleAdmin . '/language/' . $GLOBALS['xoopsConfig']['language'] . '/' . 'main.php')) {
     $fileinc = $pathModuleAdmin . '/language/english/main.php';
 }
-include_once $fileinc;
+require_once $fileinc;
 
 $adminmenu              = [];
 $i                      = 0;
@@ -59,9 +58,9 @@ global $xoopsConfig;
  * make sure we have the admin menu language constants loaded
  */
 if (file_exists(XOOPS_ROOT_PATH . '/modules/xbs_log/language/' . $xoopsConfig['language'] . '/admin.php')) {
-    include_once XOOPS_ROOT_PATH . '/modules/xbs_log/language/' . $xoopsConfig['language'] . '/admin.php';
+    require_once XOOPS_ROOT_PATH . '/modules/xbs_log/language/' . $xoopsConfig['language'] . '/admin.php';
 } else {
-    include_once XOOPS_ROOT_PATH . '/modules/xbs_log/language/english/admin.php';
+    require_once XOOPS_ROOT_PATH . '/modules/xbs_log/language/english/admin.php';
 }
 
 /**

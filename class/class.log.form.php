@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2006, Ashley Kitson                                        //
 // URL:       http://xoobs.net                                               //
@@ -32,6 +33,7 @@ class logTableForm
      * Private variables
      * @access private
      */
+
     public $_title     = '';           //title for table
     public $_cols      = [];       //column names
     public $_rows      = [];       //array of arrays, containing data for each column per row
@@ -43,6 +45,7 @@ class logTableForm
     public $_deleteUrl = '';       //url to redirect user to delete a record
     public $_dispKey   = 1;          //display key column (first column in table display)
     /**#@-*/
+
     /**
      * Constructor
      *
@@ -51,28 +54,39 @@ class logTableForm
      * i.e they are absolute urls.  Note trailing =.  The value of column 0 (KeyId)
      * will be suffixed to the url string before processing
      *
-     * @param array   $colNames names of columns [0 => rowKeyName, 1 => Col1name .. n => Colnname]
-     * @param string  $title    title of table if required
-     * @param boolean $dispKey  display the row key as first column.  If false, you must still supply a column name as the first column in $colNames but it will be ignored and can safely be set to null or ''
-     * @param string  $newUrl   url to redirect to add a new record
-     * @param string  $editUrl  url to redirect to edit a record
-     * @param string  $delUrl   url to redirect to delete a record
+     * @param array  $colNames names of columns [0 => rowKeyName, 1 => Col1name .. n => Colnname]
+     * @param string $title    title of table if required
+     * @param bool   $dispKey  display the row key as first column.  If false, you must still supply a column name as the first column in $colNames but it will be ignored and can safely be set to null or ''
+     * @param string $newUrl   url to redirect to add a new record
+     * @param string $editUrl  url to redirect to edit a record
+     * @param string $delUrl   url to redirect to delete a record
      */
     public function __construct($colNames, $title = null, $dispKey = true, $newUrl = null, $editUrl = null, $delUrl = null)
     {
-        $this->_title     = $title;
+        $this->_title = $title;
+
         $this->_hasInsert = (null != $newUrl);
+
         $this->_insertUrl = $newUrl;
-        $this->_hasEdit   = (null != $editUrl);
-        $this->_editUrl   = $editUrl;
+
+        $this->_hasEdit = (null != $editUrl);
+
+        $this->_editUrl = $editUrl;
+
         $this->_hasDelete = (null != $delUrl);
+
         $this->_deleteUrl = $delUrl;
-        $this->_dispKey   = ($dispKey ? 0 : 1);
+
+        $this->_dispKey = ($dispKey ? 0 : 1);
+
         if ($this->_hasEdit || $this->_hasDelete) {
             $colNames[] = _AM_XBSLOG_ACTIONCOL;
         }
+
         $this->_cols = $colNames;
-    }//end function constructor
+    }
+
+    //end function constructor
 
     /**
      * Add a row of data to the table
@@ -83,16 +97,22 @@ class logTableForm
     {
         if ($this->_hasEdit) {
             $content = '<a href="' . $this->_editUrl . $row[0] . '">' . _AM_XBSLOG_EDIT . '</a>';
+
             if ($this->_hasDelete) {
                 $content .= ' - <a href="' . $this->_deleteUrl . $row[0] . '">' . _AM_XBSLOG_DEL . '</a>';
             }
+
             $row[] = $content;
         } elseif ($this->_hasDelete) {
             $content = '<a href="' . $this->_deleteUrl . $row[0] . '">' . _AM_XBSLOG_DEL . '</a>';
-            $row[]   = $content;
+
+            $row[] = $content;
         }
+
         $this->_rows[] = $row;
-    }//end function addRow
+    }
+
+    //end function addRow
 
     /**
      * Add multiple rows to table
@@ -109,41 +129,58 @@ class logTableForm
     /**
      * output the table as html
      *
-     * @param boolean $render If true then echo html to output else return html to caller
+     * @param bool $render If true then echo html to output else return html to caller
      * @return mixed string if $render = false, else void
      */
     public function display($render = true)
     {
         $numcols = count($this->_cols);
+
         $content = "\n\n<!-- Table Edit Display -->\n\n<table border='0' cellpadding='4' cellspacing='1' width='100%' class='outer'>";
+
         if ($this->_title) {
             $content .= '<caption><b>' . $this->_title . "</b></caption>\n";  //title
         }
+
         //set column names
+
         $content .= "<tr align=\"center\">\n  ";
+
         for ($i = $this->_dispKey; $i < $numcols; $i++) {
             $content .= '<th>' . $this->_cols[$i] . '</th>';
         }
+
         $content .= "\n</tr>\n";
+
         //display data
+
         $class = 'even';
+
         foreach ($this->_rows as $row) {
-            $class   = ('even' == $class ? 'odd' : 'even');
+            $class = ('even' == $class ? 'odd' : 'even');
+
             $content .= "<tr align='left' class=\"" . $class . "\">\n  ";
+
             for ($i = $this->_dispKey; $i < $numcols; $i++) {
                 $content .= '<td>' . $row[$i] . '</td>';
             }
+
             $content .= "\n</tr>\n";
         }
+
         //Put in an insert button if required
+
         if ($this->_hasInsert) {
             $content .= "<tr>\n  <td colspan=" . $numcols . ' align="right"><form action="' . $this->_insertUrl . '" method="POST"><input type="SUBMIT" value="' . _AM_XBSLOG_INSERT . "\"></form></td>\n</tr>\n";
         }
+
         $content .= "</table>\n<!-- End Table Edit Display -->\n";
+
         if ($render) {
             echo $content;
         } else {
             return $content;
         }
-    }//end function display
+    }
+    //end function display
 }//end class logTableForm

@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <https://xoops.org/>                             //
+//                       <https://xoops.org>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -50,7 +51,7 @@ $myLogger = xoops_getModuleHandler('Logger', XBSLOG_DIR);
 $myLogger->setLogName('mylog');             //NB limited to 10 characters
 $stage = 'test';                            //NB stage tag limited to 10 characters
 for ($i = 0; $i < 75; $i++) {                     //shove some entries into log
-    $processMsg = 'Test message : Iteration ' . (string)$i;       //NB message limited to 255 characters
+    $processMsg = 'Test message : Iteration ' . $i;       //NB message limited to 255 characters
     $myLogger->log($stage, $processMsg);
 }//end for
 
@@ -59,4 +60,4 @@ echo "<div align='center'><p><b>Now check the logger admin screen to see the ent
 /**
  * Do page footer
  */
-include XOOPS_ROOT_PATH . '/footer.php';      //display the page!
+require XOOPS_ROOT_PATH . '/footer.php';      //display the page!
