@@ -24,7 +24,7 @@
  * define('XBSLOG_DIR', $xoopsModule->dirname());
  * </code>
  */
-define('XBSLOG_DIR', 'xbs_log');
+define('XBSLOG_DIR', 'xbslog');
 
 /**#@+
  * Constants for xbslog objects

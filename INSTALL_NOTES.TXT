@@ -31,7 +31,7 @@ therefore are not displayed.
 Installation
 ------------
 1/ Extract archive to your Xoops module directory.  Ensure that you install
-into the xbs_log subdirectory (default behavour).
+into the xbslog subdirectory (default behavour).
 
 2/ Use Xoops module installation as usual.  Take careful note of the
 installation messages.  If it says something like the install script failed
@@ -46,7 +46,7 @@ only (0700 for *nix).
 Unfortunately Xoops does not show user error messages from the
 install/deinstall/update scripts yet so that's why you are being told here!
 
-3/ Point your browser at XOOPS_ROOT_PATH/modules/xbs_log/test.php
+3/ Point your browser at XOOPS_ROOT_PATH/modules/xbslog/test.php
 This should create some log entries.  Check that you can see the file using
 your file browser (you may need to set permissions on the log directory/file
 to do this.)  Now go to XBS Logger administration (Log menu option).  You

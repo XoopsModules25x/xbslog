@@ -47,7 +47,7 @@
  */
 require __DIR__ . '/header.php';
 
-$myLogger = xoops_getModuleHandler('Logger', XBSLOG_DIR);
+$myLogger = \XoopsModules\Xbslog\Helper::getInstance()->getHandler('Logger');
 $myLogger->setLogName('mylog');             //NB limited to 10 characters
 $stage = 'test';                            //NB stage tag limited to 10 characters
 for ($i = 0; $i < 75; $i++) {                     //shove some entries into log

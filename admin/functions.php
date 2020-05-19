@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+use XoopsModules\Xbslog;
+
 /**
  * Admin page functions
  *
@@ -22,7 +24,7 @@ function adminViewLog($start = 0)
 {
     //initiate the log handler
 
-    $logHandler = xoops_getModuleHandler('Logger', XBSLOG_DIR);
+    $logHandler = \XoopsModules\Xbslog\Helper::getInstance()->getHandler('Logger');
 
     //transfer any disk file entries to database
 
@@ -32,7 +34,7 @@ function adminViewLog($start = 0)
 
     $cols = [_AM_XBSLOGFRM1_COL1, _AM_XBSLOGFRM1_COL2, _AM_XBSLOGFRM1_COL3, _AM_XBSLOGFRM1_COL4];
 
-    $table = new logTableForm($cols, _AM_XBSLOGFRM1_TITLE);
+    $table = new Xbslog\Form\LogTableForm($cols, _AM_XBSLOGFRM1_TITLE);
 
     $numRows = $logHandler->getRowsNum();
 
@@ -100,19 +102,19 @@ function adminClearLog($doIt = false)
 
         //regular submit/cancel buttons tray
 
-        $ftray = new XoopsFormElementTray('');
+        $ftray = new \XoopsFormElementTray('');
 
-        $submit = new XoopsFormButton('', 'doDel', _AM_XBSLOG_DEL, 'submit');
+        $submit = new \XoopsFormButton('', 'doDel', _AM_XBSLOG_DEL, 'submit');
 
-        $cancel = new XoopsFormButton('', 'cancel', _AM_XBSLOG_CANCEL, 'submit');
+        $cancel = new \XoopsFormButton('', 'cancel', _AM_XBSLOG_CANCEL, 'submit');
 
         $ftray->addElement($submit);
 
         $ftray->addElement($cancel);
 
-        $fmessage = new XoopsFormLabel('', _AM_XBSLOGFRM1_CONFIRMDEL);
+        $fmessage = new \XoopsFormLabel('', _AM_XBSLOGFRM1_CONFIRMDEL);
 
-        $confirmForm = new XoopsThemeForm(_AM_XBSLOG_ACTIONCONFIRM, 'confirmform', 'index.php');
+        $confirmForm = new \XoopsThemeForm(_AM_XBSLOG_ACTIONCONFIRM, 'confirmform', 'index.php');
 
         $confirmForm->addElement($fmessage);
 

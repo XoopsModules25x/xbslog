@@ -39,3 +39,10 @@ define('_MI_XBSLOG_DATEDESC', 'Date formatting string used for log output to scr
  * Block naming and descriptions
  */
 /**#@-*/
+
+//Menu
+define('_MI_XBSLOG_MENU_HOME', 'Home');
+define('_MI_XBSLOG_MENU_01', 'Admin');
+define('_MI_XBSLOG_MENU_ABOUT', 'About');
+define('_AM_XBSLOG_MENU_HELP', 'Help');
+

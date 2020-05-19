@@ -22,10 +22,11 @@
 /**
  * Do all the declarations etc needed by an admin page
  */
+require_once __DIR__ . '/admin_header.php';
 require_once __DIR__ . '/adminheader.php';
 
 //Display the admin menu
-xoops_module_admin_menu(1, _AM_XBSLOG_ADMENU1);
+//xoops_module_admin_menu(1, _AM_XBSLOG_ADMENU1);
 
 /**
  * To use this as a template you need to write page to display

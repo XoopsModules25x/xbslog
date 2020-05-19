@@ -284,11 +284,8 @@ function xoops_module_admin_menu($currentoption = 0, $breadcrumb = '')
 /**
  * Include XBSLOG constant defines
  */
-require_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
-/**
- * XBSLOG Form elements
- */
-require_once XBSLOG_PATH . '/class/class.log.form.php';
+require_once XOOPS_ROOT_PATH . '/modules/xbslog/include/defines.php';
+
 /**
  * admin functions
  */

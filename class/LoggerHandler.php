@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace XoopsModules\Xbslog;
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -42,14 +44,14 @@
 /**
  * Load module definitions
  */
-require_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
+require_once XOOPS_ROOT_PATH . '/modules/xbslog/include/defines.php';
 
 /**
  * Writes and reads log entries for any application
  *
  * To use this class do the following:<br><br>
- *  include_once(XOOPS_ROOT_PATH."/modules/xbs_log/include/defines.php");<br>
- *  $myLogger = xoops_getModuleHandler('Logger',XBSLOG_DIR);<br>
+ *  include_once(XOOPS_ROOT_PATH."/modules/xbslog/include/defines.php");<br>
+ *  $myLogger = \XoopsModules\Xbslog\Helper::getInstance()->getHandler('Logger');<br>
  *  $myLogger->setLogName("<name of logger>"); //NB limited to 10 characters<br>
  *  $stage = "start"; //NB stage tag limited to 10 characters<br>
  *  $processMsg = "Some message" //NB message limited to 255 characters<br>
@@ -60,7 +62,7 @@ require_once XOOPS_ROOT_PATH . '/modules/xbs_log/include/defines.php';
  * @author        Ashley Kitson http://xoobs.net
  * @copyright (c) 2006 Ashley Kitson, Great Britain
  */
-class Xbs_logLoggerHandler extends XoopsObjectHandler
+class LoggerHandler extends \XoopsObjectHandler
 {
     /**#@+
      * Private variables
@@ -120,7 +122,7 @@ class Xbs_logLoggerHandler extends XoopsObjectHandler
 
         $t[0] = ltrim($t[0], '0.');
 
-        return date($this->_dateFmt, $t[1]) . ".$t[0]";
+        return date($this->_dateFmt, (int)$t[1]) . ".$t[0]";
     }
 
     /**

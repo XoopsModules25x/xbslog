@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace XoopsModules\Xbslog\Form;
+
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2006, Ashley Kitson                                        //
 // URL:       http://xoobs.net                                               //
@@ -27,7 +29,7 @@ require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
  * @package    XBSLOG
  * @subpackage Form_Handling
  */
-class logTableForm
+class LogTableForm
 {
     /**#@+
      * Private variables
@@ -183,4 +185,4 @@ class logTableForm
         }
     }
     //end function display
-}//end class logTableForm
+}//end class LogTableForm
