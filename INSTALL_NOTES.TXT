@@ -25,13 +25,13 @@ Xoops V2.2 will work although you may experience some weirdness in the
 display of the admin menus etc.
 
 PHP >= 4.3.10.  Versions prior to this do not support the %F attribute to
-sprintf() and therefore logs cannot be read from disk into database and 
+sprintf() and therefore logs cannot be read from disk into database and
 therefore are not displayed.
 
 Installation
 ------------
 1/ Extract archive to your Xoops module directory.  Ensure that you install
-into the xbs_log subdirectory (default behavour).
+into the xbslog subdirectory (default behavour).
 
 2/ Use Xoops module installation as usual.  Take careful note of the
 installation messages.  If it says something like the install script failed
@@ -39,17 +39,17 @@ then this is because there is a permissioning problem on your XOOPS_ROOT_PATH.
 The installation directory attempts to create a directory XOOPS_ROOT_PATH/log.
 Install script failure message indicates that it is not able to do this.  Create
 the directory yourself and make sure it is owned by the user that is running
-your web server (typically apache or nobody on *nix systems.) 
+your web server (typically apache or nobody on *nix systems.)
 You can also set the directory permissions to read/write and execute for owner
 only (0700 for *nix).
 
-Unfortunately Xoops does not show user error messages from the 
+Unfortunately Xoops does not show user error messages from the
 install/deinstall/update scripts yet so that's why you are being told here!
 
-3/ Point your browser at XOOPS_ROOT_PATH/modules/xbs_log/test.php
+3/ Point your browser at XOOPS_ROOT_PATH/modules/xbslog/test.php
 This should create some log entries.  Check that you can see the file using
 your file browser (you may need to set permissions on the log directory/file
-to do this.)  Now go to XBS Logger administration (Log menu option).  You 
+to do this.)  Now go to XBS Logger administration (Log menu option).  You
 should see the logged records.  This means they have been transfered to the database.
 You can additionally check that the log file is now empty.
 
@@ -58,7 +58,7 @@ You're good to go.
 
 Using the system
 ----------------
-Check out the test.php and header.php files (you can delete them once you are 
+Check out the test.php and header.php files (you can delete them once you are
 satisfied that the system works).  It demonstrates how to use the logger
 quite simply.
 
@@ -90,12 +90,12 @@ disk file are read into the database permanent store and the disk file is trunca
 You can empty the disk storage as an option from the log admin screen.
 
 If you are not going to manually read the log you should set up some sort of cron
-job that utilises the LoggerHandler class (e.g. $myLogger->readLogToDB()) to read the disk file periodically.  
+job that utilises the LoggerHandler class (e.g. $myLogger->readLogToDB()) to read the disk file periodically.
 (NB, or you could wait for the next XBS module which is an event scheduler !)
 
 Provision to GPL License V2
 ---------------------------
-As part of your usage of this module you agree that installations and uninstalls 
+As part of your usage of this module you agree that installations and uninstalls
 are registered with the code owner.
 
 You can do everything that the GPL says you can except:
@@ -107,8 +107,8 @@ Why?
 
 Because, whilst I don't really care about how you use this software I am
 interested in where it is being used.  The xbsnotice script attempts to
-send a message to my home server when the software is installed or 
-uninstalled.  This simply tells me what server it is installed on.  
+send a message to my home server when the software is installed or
+uninstalled.  This simply tells me what server it is installed on.
 
 Why am I telling you this instead of obscuring it?
 
@@ -123,5 +123,5 @@ Download at xoobs.net or xoops.dev.org
 Support at xoobs.net
 
 Have fun
-Ashley 
+Ashley
 admin at xoobs dot net

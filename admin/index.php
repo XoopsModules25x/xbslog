@@ -1,62 +1,31 @@
-<?php
-// Author:    Ashley Kitson                                                  //
-// Copyright: (c) 2006, Ashley Kitson                                        //
-// URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
-// Module:    XBS Logger (XBSLOG)
-// ------------------------------------------------------------------------- //
-/**
-* Admin index page
-*
-* Display log
-*
-* @author Ashley Kitson http://xoobs.net
-* @copyright 2006 Ashley Kitson, UK
-* @package XBSLOG
-* @subpackage Admin
-* @version 1
-* @access private
-*/
+<?php declare(strict_types=1);
+
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
 
 /**
-* Do all the declarations etc needed by an admin page
-*/
-include_once "adminheader.php";
+ * @copyright    The XOOPS Project http://sourceforge.net/projects/xoops/
+ * @license      GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @package
+ * @since
+ * @author       XOOPS Development Team
+ * @version      $Id $
+ */
+require_once dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require_once __DIR__ . '/admin_header.php';
 
-//Display the admin menu
-xoops_module_admin_menu(1,_AM_XBSLOG_ADMENU1);
+xoops_cp_header();
 
-/**
-* To use this as a template you need to write page to display
-* whatever it is you want displaying between here...
-*/
+$adminObject = \Xmf\Module\Admin::getInstance();
 
-/**
-* @global array Form Post variables
-*/
-global $_POST;
-/**
-* @global array Get variables
-*/
-global $_GET;
+$adminObject->displayNavigation('index.php');
+$adminObject->displayIndex();
 
-//First process any GETs
-if (isset($_GET)) extract($_GET);
-if (isset($start)) { //review the log starting at
-	adminViewLog($start); 
-} elseif (isset($delete)) { //clear the log
-	adminClearLog();
-} elseif (isset($_POST['doDel'])) {
-	adminClearLog(true);
-} else  { //review log from beginning
- 	adminViewLog(0);
-} //end if
-
-/**
-* and here.
-*/
-
-//And put footer in
-xoops_cp_footer();
-
-?>
+require_once __DIR__ . '/admin_footer.php';
