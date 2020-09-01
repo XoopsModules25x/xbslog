@@ -44,5 +44,17 @@ define('_MI_XBSLOG_DATEDESC', 'Date formatting string used for log output to scr
 define('_MI_XBSLOG_MENU_HOME', 'Home');
 define('_MI_XBSLOG_MENU_01', 'Admin');
 define('_MI_XBSLOG_MENU_ABOUT', 'About');
-define('_AM_XBSLOG_MENU_HELP', 'Help');
+define('_AM_XBSLOG_MENU_DOCS', 'Docu');
 
+//Help
+define('_MI_XBSLOG_DIRNAME', basename(dirname(dirname(__DIR__))));
+define('_MI_XBSLOG_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
+define('_MI_XBSLOG_BACK_2_ADMIN', 'Back to Administration of ');
+define('_MI_XBSLOG_OVERVIEW', 'Overview');
+
+//define('_MI_XBSLOG_HELP_DIR', __DIR__);
+
+//help multi-page
+define('_MI_XBSLOG_DISCLAIMER', 'Disclaimer');
+define('_MI_XBSLOG_LICENSE', 'License');
+define('_MI_XBSLOG_SUPPORT', 'Support');
