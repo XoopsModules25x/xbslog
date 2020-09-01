@@ -56,8 +56,8 @@ $adminmenu[] = [
 ];
 
 
-$adminmenu[] = [
-    'title' => _AM_XBSLOG_MENU_HELP,
-    'link' => 'admin/help.php',
-    'icon' => $pathIcon32 . '/help.png',
-];
+//$adminmenu[] = [
+//    'title' => _AM_XBSLOG_MENU_DOCS,
+//    'link' => 'admin/help.php',
+//    'icon' => $pathIcon32 . '/help.png',
+//];

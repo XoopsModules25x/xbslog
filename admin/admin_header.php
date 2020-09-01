@@ -40,5 +40,3 @@ xoops_loadLanguage('main', $thisModuleDir);
 
 $pathIcon16      = XOOPS_URL . '/' . $xoopsModule->getInfo('icons16');
 $pathIcon32      = XOOPS_URL . '/' . $xoopsModule->getInfo('icons32');
-$pathModuleAdmin = XOOPS_ROOT_PATH . '/' . $xoopsModule->getInfo('dirmoduleadmin');
-require_once $pathModuleAdmin . '/moduleadmin/moduleadmin.php';

@@ -30,34 +30,41 @@ global $modversion;
  * Logger definitions
  */
 require_once XOOPS_ROOT_PATH . '/modules/xbslog/include/defines.php';
+$moduleDirName      = basename(__DIR__);
+$moduleDirNameUpper = mb_strtoupper($moduleDirName);
 
-$modversion['name']        = _MI_XBSLOG_NAME;
-$modversion['version']     = .1;
-$modversion['description'] = _MI_XBSLOG_DESC;
-$modversion['credits']     = 'Ashley Kitson<br>( http://xoobs.net/ )';
-$modversion['author']      = 'Ashley Kitson';
-$modversion['help']        = 'xbsloghelp.html';
-//$modversion['help']        = 'page=help';
-$modversion['license']     = 'GNU GPL 2.0 or later';
-$modversion['license_url'] = 'www.gnu.org/licenses/gpl-2.0.html';
-$modversion['official']    = 0;
-$modversion['image']       = 'assets/images/logoModule.png';;
-$modversion['dirname']     = basename(__DIR__);
-
-$modversion['dirmoduleadmin'] = 'Frameworks/moduleclasses';
-$modversion['icons16']        = 'Frameworks/moduleclasses/icons/16';
-$modversion['icons32']        = 'Frameworks/moduleclasses/icons/32';
-//about
-$modversion['release_date']        = '2013/10/08';
-$modversion['module_website_url']  = 'www.xoops.org';
-$modversion['module_website_name'] = 'XOOPS';
+$modversion['version']             = 2.01;
 $modversion['module_status']       = 'Beta 1';
-$modversion['min_php']             = '5.3.7';
-$modversion['min_xoops']           = '2.5.6';
-$modversion['min_admin']           = '1.1';
-$modversion['min_db']              = [
-    'mysql'  => '5.0.7',
-    'mysqli' => '5.0.7',
+$modversion['release_date']        = '2020/08/30';
+$modversion['name']                = _MI_XBSLOG_NAME;
+$modversion['description']         = _MI_XBSLOG_DESC;
+$modversion['credits']             = 'Ashley Kitson<br>( http://xoobs.net/ )';
+$modversion['author']              = 'Ashley Kitson';
+//$modversion['help']                = 'xbsloghelp.html';
+$modversion['license']             = 'GNU GPL 2.0 or later';
+$modversion['license_url']         = 'www.gnu.org/licenses/gpl-2.0.html';
+$modversion['official']            = 0;
+$modversion['dirname']             = $moduleDirName;
+$modversion['modicons16']          = 'assets/images/icons/16';
+$modversion['modicons32']          = 'assets/images/icons/32';
+$modversion['image']               = 'assets/images/logoModule.png';
+$modversion['module_website_url']  = 'https://xoops.org';
+$modversion['module_website_name'] = 'XOOPS';
+$modversion['min_php']             = '7.1';
+$modversion['min_xoops']           = '2.5.10';
+$modversion['min_admin']           = '1.2';
+$modversion['min_db']              = ['mysql' => '5.5'];
+$modversion['system_menu']         = 1;
+$modversion['adminindex']          = 'admin/index.php';
+$modversion['adminmenu']           = 'admin/menu.php';
+
+// ------------------- Help files ------------------- //
+$modversion['help']        = 'page=help';
+$modversion['helpsection'] = [
+    ['name' => _MI_XBSLOG_OVERVIEW, 'link' => 'page=help'],
+    ['name' => _MI_XBSLOG_DISCLAIMER, 'link' => 'page=disclaimer'],
+    ['name' => _MI_XBSLOG_LICENSE, 'link' => 'page=license'],
+    ['name' => _MI_XBSLOG_SUPPORT, 'link' => 'page=support'],
 ];
 
 #$modversion['onUpdate'] = "install_funcs.php";
