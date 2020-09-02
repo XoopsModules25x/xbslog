@@ -9,8 +9,11 @@
  * @subpackage    Definitions
  * @version       1
  * @access        private
- * @author        Ashley Kitson http://xoobs.net
- * @copyright (c) 2006 Ashley Kitson, Great Britain
+ * @copyright     Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  */
 
 /**
@@ -47,7 +50,7 @@ define('_MI_XBSLOG_MENU_ABOUT', 'About');
 define('_AM_XBSLOG_MENU_DOCS', 'Docu');
 
 //Help
-define('_MI_XBSLOG_DIRNAME', basename(dirname(dirname(__DIR__))));
+define('_MI_XBSLOG_DIRNAME', basename(dirname(__DIR__, 2)));
 define('_MI_XBSLOG_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
 define('_MI_XBSLOG_BACK_2_ADMIN', 'Back to Administration of ');
 define('_MI_XBSLOG_OVERVIEW', 'Overview');

@@ -1,19 +1,26 @@
 <?php declare(strict_types=1);
 
-// Author:    Ashley Kitson                                                  //
-// Copyright: (c) 2004, Ashley Kitson
-// URL:       http://xoobs.net                                               //
-// Project:   The XOOPS Project (https://xoops.org/)                      //
-// Module:    XBS Logger (XBSLOG)                                            //
-// ------------------------------------------------------------------------- //
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
+
 /**
  * Xoops module Installation parameters
  *
  * This file conforms to the Xoops standard for the xoops_version.php file.
  * Constant declarations beginning _MI_ are contained in language/../modinfo.php
  *
- * @author        Ashley Kitson http://xoobs.net
- * @copyright (c) 2006, Ashley Kitson
+ * @copyright     Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  * @package       XBSLOG
  * @version       1
  * @subpackage    Installation
@@ -33,13 +40,13 @@ require_once XOOPS_ROOT_PATH . '/modules/xbslog/include/defines.php';
 $moduleDirName      = basename(__DIR__);
 $moduleDirNameUpper = mb_strtoupper($moduleDirName);
 
-$modversion['version']             = 2.01;
-$modversion['module_status']       = 'Beta 1';
-$modversion['release_date']        = '2020/08/30';
-$modversion['name']                = _MI_XBSLOG_NAME;
-$modversion['description']         = _MI_XBSLOG_DESC;
-$modversion['credits']             = 'Ashley Kitson<br>( http://xoobs.net/ )';
-$modversion['author']              = 'Ashley Kitson';
+$modversion['version']       = 2.01;
+$modversion['module_status'] = 'Beta 1';
+$modversion['release_date']  = '2020/08/30';
+$modversion['name']          = _MI_XBSLOG_NAME;
+$modversion['description']   = _MI_XBSLOG_DESC;
+$modversion['credits']       = 'Ashley Kitson<br>( http://xoobs.net/ )';
+$modversion['author']        = 'Ashley Kitson';
 //$modversion['help']                = 'xbsloghelp.html';
 $modversion['license']             = 'GNU GPL 2.0 or later';
 $modversion['license_url']         = 'www.gnu.org/licenses/gpl-2.0.html';

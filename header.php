@@ -3,8 +3,11 @@
 /**
  * Module header file required by xoops
  *
- * @author        Ashley Kitson http://xoobs.net
- * @copyright (c) 2006, Ashley Kitson
+ * @copyright     Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  * @package       XBSLOG
  * @subpackage    Definitions
  * @access        private
@@ -13,7 +16,7 @@
 /**
  * Xoops required include
  */
-require dirname(dirname(__DIR__)) . '/mainfile.php';
+require dirname(__DIR__, 2) . '/mainfile.php';
 /**
  * non language specific constant definitions
  */

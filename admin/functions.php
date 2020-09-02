@@ -1,17 +1,21 @@
 <?php declare(strict_types=1);
 
 use XoopsModules\Xbslog;
+use XoopsModules\Xbslog\Helper;
 
 /**
  * Admin page functions
  *
- * @author     Ashley Kitson http://xoobs.net
- * @copyright  2006 Ashley Kitson, UK
- * @package    XBSLOG
- * @subpackage Admin
- * @access     private
- * @version    1
  * @param mixed $start
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
+ * @package       XBSLOG
+ * @subpackage    Admin
+ * @access        private
+ * @version       1
+ * @copyright     Ashley Kitson
  */
 
 /**
@@ -24,7 +28,7 @@ function adminViewLog($start = 0)
 {
     //initiate the log handler
 
-    $logHandler = \XoopsModules\Xbslog\Helper::getInstance()->getHandler('Logger');
+    $logHandler = Helper::getInstance()->getHandler('Logger');
 
     //transfer any disk file entries to database
 
