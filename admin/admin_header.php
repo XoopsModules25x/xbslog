@@ -16,9 +16,11 @@
  * @package
  * @since
  * @author       XOOPS Development Team
- * @version      $Id $
  */
-$path = dirname(dirname(dirname(__DIR__)));
+
+use Xmf\Module\Admin;
+
+$path = dirname(__DIR__, 3);
 require_once $path . '/mainfile.php';
 require_once $path . '/include/cp_functions.php';
 require_once $path . '/include/cp_header.php';
@@ -28,7 +30,7 @@ global $xoopsModule;
 $thisModuleDir = $GLOBALS['xoopsModule']->getVar('dirname');
 
 /** @var Xmf\Module\Admin $adminObject */
-$adminObject = \Xmf\Module\Admin::getInstance();
+$adminObject = Admin::getInstance();
 
 //if functions.php file exist
 //require_once dirname(__DIR__) . '/include/functions.php';
@@ -38,7 +40,5 @@ xoops_loadLanguage('admin', $thisModuleDir);
 xoops_loadLanguage('modinfo', $thisModuleDir);
 xoops_loadLanguage('main', $thisModuleDir);
 
-$pathIcon16      = XOOPS_URL . '/' . $xoopsModule->getInfo('icons16');
-$pathIcon32      = XOOPS_URL . '/' . $xoopsModule->getInfo('icons32');
-$pathModuleAdmin = XOOPS_ROOT_PATH . '/' . $xoopsModule->getInfo('dirmoduleadmin');
-require_once $pathModuleAdmin . '/moduleadmin/moduleadmin.php';
+$pathIcon16 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons16');
+$pathIcon32 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons32');

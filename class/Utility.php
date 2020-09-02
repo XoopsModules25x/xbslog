@@ -14,6 +14,7 @@ namespace XoopsModules\Xbslog;
  WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
+
 /**
  *
  * @license      https://www.fsf.org/copyleft/gpl.html GNU public license
@@ -23,7 +24,8 @@ namespace XoopsModules\Xbslog;
 
 use XoopsModules\Xbslog;
 use XoopsModules\Xbslog\Common;
-use XoopsModules\Xbslog\Constants;
+
+//use XoopsModules\Xbslog\Constants;
 
 /**
  * Class Utility

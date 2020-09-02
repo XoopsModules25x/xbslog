@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class XoopsModules\Xbslog\LoggerHandler</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li>
+					<a href="namespace-None.html">
+						None					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-XoopsModules.html">
+						XoopsModules<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-XoopsModules.Xbslog.html">
+						Xbslog<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-XoopsModules.Xbslog.Common.html">
+						Common					</a>
+
+						</li>
+				<li>
+					<a href="namespace-XoopsModules.Xbslog.Form.html">
+						Form					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-XoopsModules.Xbslog.Helper.html">Helper</a></li>
+				<li class="active"><a href="class-XoopsModules.Xbslog.LoggerHandler.html">LoggerHandler</a></li>
+				<li><a href="class-XoopsModules.Xbslog.Utility.html">Utility</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-XoopsModules.Xbslog.html" title="Summary of XoopsModules\Xbslog"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class LoggerHandler</h1>
+
+
+	<div class="description">
+	<p>Writes and reads log entries for any application</p>
+
+<p>To use this class do the following:<br><br> include_once(XOOPS_ROOT_PATH."/modules/xbslog/include/defines.php");<br> $myLogger = \XoopsModules\Xbslog\Helper::getInstance()->getHandler('Logger');<br> $myLogger->setLogName("<name of logger>"); //NB limited to 10 characters<br> $stage = "start"; //NB stage tag limited to 10 characters<br> $processMsg = "Some message" //NB message limited to 255 characters<br> $myLogger->log($stage,$processMsg);<br></p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+XoopsObjectHandler
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>XoopsModules\Xbslog\LoggerHandler</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-XoopsModules.html">XoopsModules</a>\<a href="namespace-XoopsModules.Xbslog.html">Xbslog</a><br>
+		<b>Package:</b> XBSLOG\Logger<br>
+
+				<b>Copyright:</b>
+				(c) 2006 Ashley Kitson, Great Britain<br>
+				<b>Author:</b>
+				Ashley Kitson http://xoobs.net<br>
+			<b>Located at</b> <a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#49-296" title="Go to source code">lass/LoggerHandler.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#79-101" title="Go to source code">__construct</a>( <span>XoopsDatabase <var>$db</var></span> )</code>
+
+		<div class="description short">
+			<p>Constructor</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Constructor</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$db</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setLogName" id="_setLogName">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setLogName">#</a>
+		<code><a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#103-111" title="Go to source code">setLogName</a>( <span>string <var>$logName</var> = <span class="php-quote">'XBS'</span></span> )</code>
+
+		<div class="description short">
+			<p>Set the logger name</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the logger name</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$logName</var></dt>
+					<dd>arbitrary name for this logger</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="mtimeToDate" id="_mtimeToDate">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_mtimeToDate">#</a>
+		<code><a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#113-126" title="Go to source code">mtimeToDate</a>( <span>string <var>$mTimeStr</var></span> )</code>
+
+		<div class="description short">
+			<p>convert microtime string to formatted date-time-microtime</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>convert microtime string to formatted date-time-microtime</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$mTimeStr</var></dt>
+					<dd>microtime string "msec sec"</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>date format string suffixed with .microseconds
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="floatMtimeToDate" id="_floatMtimeToDate">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_floatMtimeToDate">#</a>
+		<code><a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#128-141" title="Go to source code">floatMtimeToDate</a>( <span>float <var>$mTime</var></span> )</code>
+
+		<div class="description short">
+			<p>convert a double (float) microtime to date-time-microtime  string</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>convert a double (float) microtime to date-time-microtime  string</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$mTime</var></dt>
+					<dd>float in standard microtime(true) format</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>date format string suffixed with .microseconds
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="mtimeToFloat" id="_mtimeToFloat">
+
+		<td class="attributes"><code>
+			 public 
+
+			float
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_mtimeToFloat">#</a>
+		<code><a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#143-161" title="Go to source code">mtimeToFloat</a>( <span>string <var>$mTimeStr</var></span> )</code>
+
+		<div class="description short">
+			<p>convert microtime string value to real</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>convert microtime string value to real</p>
+
+<p>This is only required because php4 does not support microtime(true)
+which isn't available until php5</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$mTimeStr</var></dt>
+					<dd>microtime string in 'msec sec' format</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					float<br>(double) microtime as float (ie as per microtime(true))
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFname" id="_getFname">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFname">#</a>
+		<code><a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#163-171" title="Go to source code">getFname</a>( )</code>
+
+		<div class="description short">
+			<p>return the full log file path and name</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>return the full log file path and name</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>log file path and name
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="log" id="_log">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_log">#</a>
+		<code><a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#173-194" title="Go to source code">log</a>( <span>string <var>$stage</var></span>, <span>string <var>$processMsg</var></span> )</code>
+
+		<div class="description short">
+			<p>Write an entry to the disk log</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Write an entry to the disk log</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$stage</var></dt>
+					<dd>arbitrary string that denotes stage of process but typically 'start', 'end' etc</dd>
+					<dt><var>$processMsg</var></dt>
+					<dd>arbitrary message to put in log</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="readLogToDB" id="_readLogToDB">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_readLogToDB">#</a>
+		<code><a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#198-236" title="Go to source code">readLogToDB</a>( )</code>
+
+		<div class="description short">
+			<p>Reads disk log into database table and clears disk log</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Reads disk log into database table and clears disk log</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLogEntries" id="_getLogEntries">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLogEntries">#</a>
+		<code><a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#240-272" title="Go to source code">getLogEntries</a>( <span>integer <var>$start</var></span>, <span>integer <var>$limit</var></span> )</code>
+
+		<div class="description short">
+			<p>get an array of log entries</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>get an array of log entries</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$start</var></dt>
+					<dd>start record number</dd>
+					<dt><var>$limit</var></dt>
+					<dd>number of rows to return</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>an array of row arrays
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRowsNum" id="_getRowsNum">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRowsNum">#</a>
+		<code><a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#276-294" title="Go to source code">getRowsNum</a>( )</code>
+
+		<div class="description short">
+			<p>Get the number of log entries</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the number of log entries</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="_logName" id="$_logName">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#68-73" title="Go to source code"><var>$_logName</var></a>
+
+			<div class="description short">
+				<p>Private variables</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Private variables</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_logName" class="anchor">#</a>
+				<code><span class="php-quote">'XBS'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_logPath" id="$_logPath">
+		<td class="attributes"><code>
+			public  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#74" title="Go to source code"><var>$_logPath</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_logPath" class="anchor">#</a>
+				<code>XBSLOG_LOG_PATH</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_logFile" id="$_logFile">
+		<td class="attributes"><code>
+			public  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#75" title="Go to source code"><var>$_logFile</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_logFile" class="anchor">#</a>
+				<code>XBSLOG_LOG_FILE</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_dateFmt" id="$_dateFmt">
+		<td class="attributes"><code>
+			public  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-XoopsModules.Xbslog.LoggerHandler.html#76" title="Go to source code"><var>$_dateFmt</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_dateFmt" class="anchor">#</a>
+				<code>XBSLOG_DATEFMT</code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

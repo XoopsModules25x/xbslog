@@ -2,20 +2,26 @@
 
 namespace XoopsModules\Xbslog\Form;
 
-// Author:    Ashley Kitson                                                  //
-// Copyright: (c) 2006, Ashley Kitson                                        //
-// URL:       http://xoobs.net                                               //
-// Project:   The XOOPS Project (https://xoops.org/)                      //
-// Module:    XBS Logger (XBSLOG)                                           //
-// ------------------------------------------------------------------------- //
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
 
 /**
  * Classes used by XBSLOG system to present form data
  *
  * @package       XBSLOG
  * @subpackage    Form_Handling
- * @author        Ashley Kitson http://xoobs.net
- * @copyright (c) 2006 Ashley Kitson, Great Britain
+ * @copyright     Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  */
 
 /**
@@ -56,12 +62,12 @@ class LogTableForm
      * i.e they are absolute urls.  Note trailing =.  The value of column 0 (KeyId)
      * will be suffixed to the url string before processing
      *
-     * @param array  $colNames names of columns [0 => rowKeyName, 1 => Col1name .. n => Colnname]
-     * @param string $title    title of table if required
-     * @param bool   $dispKey  display the row key as first column.  If false, you must still supply a column name as the first column in $colNames but it will be ignored and can safely be set to null or ''
-     * @param string $newUrl   url to redirect to add a new record
-     * @param string $editUrl  url to redirect to edit a record
-     * @param string $delUrl   url to redirect to delete a record
+     * @param array $colNames names of columns [0 => rowKeyName, 1 => Col1name .. n => Colnname]
+     * @param null  $title    title of table if required
+     * @param bool  $dispKey  display the row key as first column.  If false, you must still supply a column name as the first column in $colNames but it will be ignored and can safely be set to null or ''
+     * @param null  $newUrl   url to redirect to add a new record
+     * @param null  $editUrl  url to redirect to edit a record
+     * @param null  $delUrl   url to redirect to delete a record
      */
     public function __construct($colNames, $title = null, $dispKey = true, $newUrl = null, $editUrl = null, $delUrl = null)
     {
